@@ -1,0 +1,16 @@
+{
+  "name": "delete-tweets",
+  "version": "1.0.0",
+  "description": "A script to delete tweets.",
+  "main": "index.js",
+  "author": "Matt Batman",
+  "license": "MIT",
+  "scripts": {
+    "create-config": "cp config.default.js config.js",
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "rxjs": "^6.5.3",
+    "twit": "^2.2.11"
+  }
+}
