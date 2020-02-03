@@ -1,9 +1,7 @@
-const config = {
+export default {
   apiKey: '',
   apiSecretKey: '',
   accessToken: '',
   accessTokenSecret: '',
   screenName: ''
 };
-
-module.exports = config;

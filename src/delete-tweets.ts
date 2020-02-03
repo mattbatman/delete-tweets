@@ -1,14 +1,7 @@
-const Twit = require('twit');
-const { from } = require('rxjs');
-const { map, switchMap } = require('rxjs/operators');
-const config = require('../config');
-
-const T = new Twit({
-  consumer_key: config.apiKey,
-  consumer_secret: config.apiSecretKey,
-  access_token: config.accessToken,
-  access_token_secret: config.accessTokenSecret
-});
+import { from } from 'rxjs';
+import { map, switchMap } from 'rxjs/operators';
+import config from './config';
+import T from './index';
 
 // T.get will return a promise of the user's tweet history
 const getTimeline = T.get('/statuses/user_timeline', {
@@ -22,7 +15,7 @@ const getTimeline = T.get('/statuses/user_timeline', {
 // id_str. The id_str is the tweet's ID.
 const getTimelineIds$ = from(getTimeline).pipe(
   switchMap(({ resp, data }) => from(data)),
-  map(tweetData => tweetData.id_str)
+  map((tweetData: any) => tweetData.id_str)
 );
 
 // deleteTimeline$ will receive each individual tweet ID and, in turn, make

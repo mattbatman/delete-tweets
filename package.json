@@ -6,11 +6,18 @@
   "author": "Matt Batman",
   "license": "MIT",
   "scripts": {
-    "create-config": "cp config.default.js config.js",
-    "start": "node src/index.js"
+    "build": "tsc",
+    "build-watch": "tsc -w",
+    "create-config": "cp config.default.ts src/config.ts",
+    "delete-tweets": "yarn run build && node dist/delete-tweets.js",
+    "unlike": "yarn run build && node dist/unlike.js"
   },
   "dependencies": {
     "rxjs": "^6.5.3",
     "twit": "^2.2.11"
+  },
+  "devDependencies": {
+    "@types/node": "^13.7.0",
+    "typescript": "^3.7.5"
   }
 }
