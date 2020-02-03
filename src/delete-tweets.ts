@@ -1,7 +1,7 @@
 import { from } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 import config from './config';
-import T from './index';
+import T from './init-twit';
 
 // T.get will return a promise of the user's tweet history
 const getTimeline = T.get('/statuses/user_timeline', {
